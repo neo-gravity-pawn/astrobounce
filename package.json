@@ -1,0 +1,25 @@
+{
+  "name": "astrobounce",
+  "version": "1.0.0",
+  "description": "an asteroids experiment",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trinarybits/astrobounce.git"
+  },
+  "author": "Mathias Neugebauer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/trinarybits/astrobounce/issues"
+  },
+  "homepage": "https://github.com/trinarybits/astrobounce#readme",
+  "devDependencies": {
+    "typescript": "^3.4.3"
+  }
+}
