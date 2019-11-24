@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://images/ship.png" type="Texture" id=2]
+[ext_resource path="res://images/flame_triangle.png" type="Texture" id=3]
+[ext_resource path="res://Movement.tscn" type="PackedScene" id=4]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Curve" id=2]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0.0210388, 31.68 ), 0.0, 0.0, 0, 0, Vector2( 0.989262, 360 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0.137143, 0.365714, 0.502857, 1 )
+colors = PoolColorArray( 0.988281, 0.420792, 0.567098, 1, 0.279236, 0.668828, 0.953125, 1, 1, 0.960938, 0, 1, 0.363281, 0.0227051, 0.190332, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.99481, 0 ), -3.56307, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+flag_disable_z = true
+spread = 71.38
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 468.82
+angular_velocity = 1.73292e-15
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+radial_accel = -4.59
+angle_curve = SubResource( 3 )
+scale = 0.3
+scale_curve = SubResource( 7 )
+color_ramp = SubResource( 5 )
+hue_variation = 1.0
+
+[node name="Ship" type="KinematicBody2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, -11 )
+polygon = PoolVector2Array( 9.29583, 26.7961, 6.70756, 31.3255, -5.91025, 31.6491, -8.49851, 26.7961, -26.9399, 26.4725, -32.1165, 16.1194, -9.46912, -7.4985, -5.91025, -14.2927, -0.410172, -32.4106, 5.0899, -14.9398, 9.94289, -6.52791, 31.2961, 15.1488, 26.7667, 25.8255 )
+
+[node name="Ship" type="Sprite" parent="."]
+position = Vector2( -0.214818, 0.0958222 )
+scale = Vector2( 0.16224, 0.186026 )
+texture = ExtResource( 2 )
+offset = Vector2( 0, -60 )
+
+[node name="Flame" type="Particles2D" parent="."]
+material = SubResource( 1 )
+position = Vector2( -0.150763, 19.4654 )
+rotation = 1.5708
+scale = Vector2( 0.186026, 0.16224 )
+z_index = -1
+amount = 20
+local_coords = false
+process_material = SubResource( 8 )
+texture = ExtResource( 3 )
+
+[node name="Movement" parent="." instance=ExtResource( 4 )]
