@@ -1,0 +1,24 @@
+============
+Astrobounce:
+============
+Mathias Neugebauer (c) 2019
+
+Idea:
+-----
+Basically Match3ish + Asteroids
+Game mechanics:
+    - Goal: the ship has to destroy all asteroids to progress to the next stage
+    - Ship: floaty controls, shots (type/strength depends on mode), special shot
+    - Background: a match 3 type field, 1 - 4 normal (strength of shot), 5 special
+    - Asteroids: they have types (colors), otherwise standard, bigger ones are slow, smaller ones are fast, but...if they collide, they bounce (yeah)
+    - Shooting: the ship shots a shot of a type that depends on the piece of the background it hovers above
+Components:
+    ⁻ The background
+    - The ship
+    - The shot
+    - The asteroid
+    - The bounce
+The technique:
+    - Typescript + PixiJS
+
+
